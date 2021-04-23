@@ -8,3 +8,12 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
+  install-curl-and-jq:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+        sudo apt-get update
+        sudo apt-get install jq
+        sudo apt-get install curl
+      - run: curl --version
+      - run: jq --version
