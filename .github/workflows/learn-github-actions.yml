@@ -11,9 +11,8 @@ jobs:
   install-curl-and-jq:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        sudo apt-get update
-        sudo apt-get install jq
-        sudo apt-get install curl
-        curl --version
-        jq --version
+      - run: sudo apt-get update
+      - run: sudo apt-get install jq
+      - run: sudo apt-get install curl
+      - run: curl --version
+      - run: jq --version
