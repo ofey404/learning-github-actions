@@ -1,0 +1,12 @@
+name: test-local-file
+on: [push]
+jobs:
+  install-curl:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install curl
+      - run: curl --version
+      - run: mkdir -p data/
+      - run: curl https://ofey404.github.io > data/1.html
+      - run: echo data/1.html
