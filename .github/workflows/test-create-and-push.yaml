@@ -9,8 +9,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Create test folder and file.
+    - name: Create test folder.
       run: mkdir -p data/
+    
+    - name: Create test file.
       run: touch data/$(date +"%Y-%m-%d-%H:%M:%S")
 
     - name: Pushes test file
