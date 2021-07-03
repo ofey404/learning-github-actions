@@ -28,7 +28,7 @@ jobs:
       - name: Clone from another repo
         uses: actions/checkout@v2
         with:
-          name: 'ofey404/push-file-test'
+          repository: 'ofey404/push-file-test'
           path: 'data-from-repo'
 
       - name: Update from another repo
