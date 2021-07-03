@@ -25,6 +25,18 @@ jobs:
       - name: Create new file.
         run: touch data/$(date +"%Y-%m-%d-%H:%M:%S")
 
+      - name: Clone from another repo
+        uses: actions/checkout@v2
+        with:
+          name: 'ofey404/push-file-test'
+          path: 'data-from-repo'
+
+      - name: Update from another repo
+        run: cp data-from-repo/data/1.html data/1-$(date +"%Y-%m-%d-%H:%M:%S"
+).html
+        
+      - run: ls data-from-repo/
+
       - name: Run local script
         run: ./hello.sh
 
@@ -33,9 +45,9 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'data/*'
+          source_file: 'data/'
           destination_repo: 'ofey404/push-file-test'
-          destination_folder: 'data/'
+          destination_folder: ''
           user_email: 'ofey404@gmail.com'
           user_name: 'Ofey Chan'
           commit_message: 'Test for create folder and file.'
