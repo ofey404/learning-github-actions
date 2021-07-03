@@ -35,9 +35,6 @@ jobs:
         run: cp data-from-repo/data/1.html data/1-$(date +"%Y-%m-%d-%H:%M:%S"
 ).html
 
-      - name: ls remote repo
-        run: ls data-from-repo/
-
       - name: Run local script
         run: ./hello.sh
 
