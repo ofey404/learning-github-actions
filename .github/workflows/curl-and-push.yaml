@@ -34,7 +34,7 @@ jobs:
       - name: Update from another repo
         run: cp data-from-repo/data/1.html data/1-$(date +"%Y-%m-%d-%H:%M:%S"
 ).html
-        
+
       - run: ls data-from-repo/
 
       - name: Run local script
