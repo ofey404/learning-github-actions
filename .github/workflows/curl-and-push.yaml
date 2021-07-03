@@ -22,6 +22,9 @@ jobs:
       - name: Create overwrite file.
         run: echo "Hello" > data/2021-07-03-11:52:28
 
+      - name: Run local script
+        run: ./hello.sh
+
       - name: update-data
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
