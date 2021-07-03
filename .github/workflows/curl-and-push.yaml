@@ -1,0 +1,35 @@
+name: Create and push File
+
+on: push
+
+jobs:
+  env-create-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install curl
+      - run: curl --version
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Create test folder.
+        run: mkdir -p data/
+      
+      - name: Create test file.
+        run: curl https://ofey404.github.io > data/1.html
+
+      - name: Create overwrite file.
+        run: echo "Hello" > data/2021-07-03-11:52:28
+
+      - name: update-data
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'data/'
+          destination_repo: 'ofey404/push-file-test'
+          destination_folder: ''
+          user_email: 'ofey404@gmail.com'
+          user_name: 'Ofey Chan'
+          commit_message: 'Test for create folder and file.'
